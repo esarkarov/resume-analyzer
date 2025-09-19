@@ -1,4 +1,4 @@
-import type { IResume } from "~/interfaces/IPuter";
+import type { IResume } from "~/interfaces/IResume";
 
 export const RESUMES: IResume[] = [
   {
