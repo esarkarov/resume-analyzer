@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { MAX_FILE_SIZE } from "~/constants/size";
-import EmptyUploadState from "./EmptyUploadState";
-import SelectedFileDisplay from "./SelectedFileDisplay";
+import EmptyUploadState from "../atoms/EmptyUploadState";
+import SelectedFileDisplay from "../atoms/SelectedFileDisplay";
 
 interface FileUploaderProps {
   onFileSelect?: (file: File | null) => void;

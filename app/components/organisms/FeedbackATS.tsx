@@ -1,7 +1,7 @@
 import useATSScore from "~/hooks/useATSScore";
 import type { ISuggestion } from "~/interfaces/ISuggestion";
-import FeedbackContent from "./FeedbackContent";
-import FeedbackScoreHeader from "./FeedbackScoreHeader";
+import FeedbackContent from "../molecules/FeedbackContent";
+import FeedbackScoreHeader from "../atoms/FeedbackScoreHeader";
 
 interface FeedbackATSProps {
   score: number;

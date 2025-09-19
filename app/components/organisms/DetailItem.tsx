@@ -1,9 +1,9 @@
 import type { ICategory } from "~/interfaces/ICategory";
-import { AccordionContent } from "./AccordionContent";
-import AccordionHeader from "./AccordionHeader";
-import { AccordionItem } from "./AccordionItem";
-import CategoryContent from "./CategoryContent";
-import CategoryHeader from "./CategoryHeader";
+import { AccordionContent } from "../atoms/AccordionContent";
+import AccordionHeader from "../molecules/AccordionHeader";
+import { AccordionItem } from "../atoms/AccordionItem";
+import CategoryContent from "../molecules/CategoryContent";
+import CategoryHeader from "../molecules/CategoryHeader";
 import type { ITip } from "~/interfaces/ITip";
 
 interface DetailItemProps {

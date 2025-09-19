@@ -1,5 +1,5 @@
 import type { ITip } from "~/interfaces/ITip";
-import TipIcon from "./TipIcon";
+import TipIcon from "../atoms/TipIcon";
 
 interface TipSummaryProps {
   tips: ITip[];

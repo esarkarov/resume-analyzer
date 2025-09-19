@@ -1,4 +1,4 @@
-import CategoryScoreBadge from "./CategoryScoreBadge";
+import CategoryScoreBadge from "../atoms/CategoryScoreBadge";
 
 interface CategoryHeaderProps {
   title: string;

@@ -1,6 +1,6 @@
 import { DETAILS_CATEGORIES } from "~/constants/categories";
+import { AccordionProvider } from "~/contexts/AccordionContext";
 import type { IFeedback } from "~/interfaces/IFeedback";
-import { Accordion } from "./Accordion";
 import DetailItem from "./DetailItem";
 
 interface FeedbackDetailsProps {
@@ -10,7 +10,7 @@ interface FeedbackDetailsProps {
 const FeedbackDetails = ({ feedback }: FeedbackDetailsProps) => {
   return (
     <div className="flex flex-col gap-4 w-full">
-      <Accordion>
+      <AccordionProvider>
         {DETAILS_CATEGORIES.map((category) => (
           <DetailItem
             key={category.id}
@@ -19,7 +19,7 @@ const FeedbackDetails = ({ feedback }: FeedbackDetailsProps) => {
             tips={feedback[category.key].tips}
           />
         ))}
-      </Accordion>
+      </AccordionProvider>
     </div>
   );
 };

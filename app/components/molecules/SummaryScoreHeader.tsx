@@ -1,4 +1,4 @@
-import ScoreGauge from "./ScoreGauge";
+import ScoreGauge from "../atoms/ScoreGauge";
 
 interface SummaryScoreHeaderProps {
   overallScore: number;

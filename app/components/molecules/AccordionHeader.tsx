@@ -1,7 +1,7 @@
 import { useCallback, type ReactNode } from "react";
 import { useAccordion } from "~/contexts/AccordionContext";
 import type { TIconPosition } from "~/types";
-import ChevronIcon from "./ChevronIcon";
+import ChevronIcon from "../atoms/ChevronIcon";
 
 interface AccordionHeaderProps {
   itemId: string;

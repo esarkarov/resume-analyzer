@@ -1,4 +1,4 @@
-import ScoreCircle from "./ScoreCircle";
+import ScoreCircle from "../atoms/ScoreCircle";
 
 interface ResumeHeaderProps {
   companyName?: string;

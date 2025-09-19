@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { PATHS } from "~/constants/paths";
 import type { IResume } from "~/interfaces/IResume";
 import ResumeHeader from "./ResumeHeader";
-import ResumeImage from "./ResumeImage";
+import ResumeImage from "../atoms/ResumeImage";
 
 interface ResumeCardProps {
   resume: IResume;

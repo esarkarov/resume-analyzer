@@ -9,7 +9,7 @@ import {
 import type { ReactNode } from "react";
 import type { Route } from "./+types/root";
 import "./app.css";
-import ErrorDisplay from "./components/ErrorDisplay";
+import ErrorDisplay from "./components/atoms/ErrorDisplay";
 import { GOOGLE_FONTS_CONFIG } from "./constants/fonts";
 import { usePuterInitialization } from "./hooks/usePuterInitialization";
 import { getErrorInfo } from "./utils";

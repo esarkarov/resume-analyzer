@@ -1,5 +1,5 @@
 import { getScoreTextColor } from "~/utils";
-import ScoreBadge from "./ScoreBadge";
+import ScoreBadge from "../atoms/ScoreBadge";
 
 interface CategoryProps {
   title: string;

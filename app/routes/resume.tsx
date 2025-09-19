@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
-import FeedbackATS from "~/components/FeedbackATS";
-import FeedbackDetails from "~/components/FeedbackDetails";
-import FeedbackSummary from "~/components/FeedbackSummary";
+import FeedbackATS from "~/components/organisms/FeedbackATS";
+import FeedbackDetails from "~/components/organisms/FeedbackDetails";
+import FeedbackSummary from "~/components/molecules/FeedbackSummary";
 import { PATHS } from "~/constants/paths";
 import type { IFeedback } from "~/interfaces/IFeedback";
 import { usePuterStore } from "~/lib/puter";

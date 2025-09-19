@@ -1,5 +1,5 @@
 import type { ISuggestion } from "~/interfaces/ISuggestion";
-import SuggestionItem from "./SuggestionItem";
+import SuggestionItem from "../atoms/SuggestionItem";
 
 interface FeedbackContentProps {
   subtitle: string;

@@ -1,5 +1,5 @@
 import TipSummary from "./TipSummary";
-import TipDetail from "./TipDetail";
+import TipDetail from "../atoms/TipDetail";
 import type { ITip } from "~/interfaces/ITip";
 
 interface CategoryContentProps {
