@@ -1,10 +1,4 @@
-import type { TFeedbackTipType } from "~/types";
-
-export interface ITip {
-  type: TFeedbackTipType;
-  tip: string;
-  explanation?: string;
-}
+import type { ITip } from "./ITip";
 
 export interface IFeedbackCategory {
   score: number;

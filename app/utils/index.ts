@@ -1,7 +1,15 @@
+import { CIRCLE_VIEWBOX_SIZE } from "~/constants/circle";
+import type { ICircleGeometry } from "~/interfaces/ICircle";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import type { IBadgeConfig, IBadgeTheme } from "~/interfaces/IBadge";
 
-export function cn(...inputs: ClassValue[]) {
+export const generateUUID = () => crypto.randomUUID();
+
+export const getPuter = (): typeof window.puter | null =>
+  typeof window !== "undefined" && window.puter ? window.puter : null;
+
+export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs));
 }
 
@@ -16,10 +24,72 @@ export function formatSize(bytes: number): string {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
 }
 
-export const generateUUID = () => crypto.randomUUID();
+export const getScoreBadgeConfig = (score: number): IBadgeConfig => {
+  if (score > 70) {
+    return {
+      color: "bg-badge-green text-green-600",
+      text: "Strong",
+    };
+  }
 
-export const getPuter = (): typeof window.puter | null =>
-  typeof window !== "undefined" && window.puter ? window.puter : null;
+  if (score > 49) {
+    return {
+      color: "bg-badge-yellow text-yellow-600",
+      text: "Good Start",
+    };
+  }
+
+  return {
+    color: "bg-badge-red text-red-600",
+    text: "Needs Work",
+  };
+};
+
+export const getScoreTextColor = (score: number): string => {
+  if (score > 70) return "text-green-600";
+  if (score > 49) return "text-yellow-600";
+  return "text-red-600";
+};
+
+export const getBadgeTheme = (score: number): IBadgeTheme => {
+  if (score > 69) {
+    return {
+      bgColor: "bg-badge-green",
+      textColor: "text-badge-green-text",
+      icon: "/icons/check.svg",
+    };
+  }
+
+  if (score > 39) {
+    return {
+      bgColor: "bg-badge-yellow",
+      textColor: "text-badge-yellow-text",
+      icon: "/icons/warning.svg",
+    };
+  }
+
+  return {
+    bgColor: "bg-badge-red",
+    textColor: "text-badge-red-text",
+    icon: "/icons/warning.svg",
+  };
+};
+
+export const calculateCircleGeometry = (
+  score: number,
+  strokeWidth: number
+): ICircleGeometry => {
+  const radius = (CIRCLE_VIEWBOX_SIZE - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const progress = Math.max(0, Math.min(100, score)) / 100;
+  const strokeDashoffset = circumference * (1 - progress);
+
+  return {
+    radius,
+    circumference,
+    strokeDashoffset,
+  };
+};
 
 export const AIResponseFormat = `
       interface Feedback {

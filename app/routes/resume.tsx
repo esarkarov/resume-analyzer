@@ -1,11 +1,11 @@
-import { Link, useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { usePuterStore } from "~/lib/puter";
-import Summary from "~/components/Summary";
-import Details from "~/components/Details";
-import type { IFeedback } from "~/interfaces/IFeedback";
+import { Link, useNavigate, useParams } from "react-router";
+import FeedbackATS from "~/components/FeedbackATS";
+import FeedbackDetails from "~/components/FeedbackDetails";
+import FeedbackSummary from "~/components/FeedbackSummary";
 import { PATHS } from "~/constants/paths";
-import ATS from "~/components/ATS";
+import type { IFeedback } from "~/interfaces/IFeedback";
+import { usePuterStore } from "~/lib/puter";
 
 export const meta = () => [
   { title: "Resumind | Review " },
@@ -80,12 +80,12 @@ const Resume = () => {
           <h2 className="text-4xl !text-black font-bold">Resume Review</h2>
           {feedback ? (
             <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
-              <Summary feedback={feedback} />
-              <ATS
+              <FeedbackSummary feedback={feedback} />
+              <FeedbackATS
                 score={feedback.ATS.score || 0}
                 suggestions={feedback.ATS.tips || []}
               />
-              <Details feedback={feedback} />
+              <FeedbackDetails feedback={feedback} />
             </div>
           ) : (
             <img src="/images/resume-scan-2.gif" className="w-full" />
@@ -95,4 +95,5 @@ const Resume = () => {
     </main>
   );
 };
+
 export default Resume;

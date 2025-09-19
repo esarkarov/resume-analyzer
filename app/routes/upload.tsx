@@ -5,7 +5,7 @@ import Navbar from "~/components/Navbar";
 import { PATHS } from "~/constants/paths";
 import { convertPdfToImage } from "~/lib/pdf2img";
 import { usePuterStore } from "~/lib/puter";
-import { generateUUID, prepareInstructions } from "~/lib/utils";
+import { generateUUID, prepareInstructions } from "~/utils";
 
 export const meta = () => [
   { title: "Resumind | Upload" },
@@ -53,7 +53,7 @@ const Upload = () => {
     if (!uploadedImage) return setStatusText("Error: Failed to upload image");
 
     setStatusText("Preparing data...");
-    
+
     const uuid = generateUUID();
     const data = {
       id: uuid,
@@ -83,7 +83,7 @@ const Upload = () => {
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
     setStatusText("Analysis complete, redirecting...");
-    
+
     console.log(data);
     navigate(PATHS.resume(uuid));
   };

@@ -7,7 +7,7 @@ import type {
   IPuterStore,
   IPuterUser,
 } from "~/interfaces/IPuter";
-import { getPuter } from "./utils";
+import { getPuter } from "~/utils";
 
 declare global {
   interface Window {
