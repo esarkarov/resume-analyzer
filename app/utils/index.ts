@@ -3,6 +3,8 @@ import type { ICircleGeometry } from "~/interfaces/ICircle";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import type { IBadgeConfig, IBadgeTheme } from "~/interfaces/IBadge";
+import { isRouteErrorResponse } from "react-router";
+import type { IErrorInfo } from "~/interfaces/IError";
 
 export const generateUUID = () => crypto.randomUUID();
 
@@ -89,6 +91,33 @@ export const calculateCircleGeometry = (
     circumference,
     strokeDashoffset,
   };
+};
+
+export const getErrorInfo = (error: unknown): IErrorInfo => {
+  const defaultError = {
+    message: "Oops!",
+    details: "An unexpected error occurred.",
+  };
+
+  if (isRouteErrorResponse(error)) {
+    return {
+      message: error.status === 404 ? "404" : "Error",
+      details:
+        error.status === 404
+          ? "The requested page could not be found."
+          : error.statusText || defaultError.details,
+    };
+  }
+
+  if (import.meta.env.DEV && error instanceof Error) {
+    return {
+      message: defaultError.message,
+      details: error.message,
+      stack: error.stack,
+    };
+  }
+
+  return defaultError;
 };
 
 export const AIResponseFormat = `
