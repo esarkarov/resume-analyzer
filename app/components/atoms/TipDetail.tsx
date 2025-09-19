@@ -13,7 +13,7 @@ const TipDetail = ({ tip, index }: TipDetailProps) => {
 
   return (
     <div
-      className={cn("flex flex-col gap-2 rounded-2xl p-4", styles.container)}
+      className={cn("flex flex-col gap-2 rounded-2xl p-4", styles?.container)}
       role="article"
       aria-labelledby={`tip-title-${index}`}
     >
@@ -21,7 +21,7 @@ const TipDetail = ({ tip, index }: TipDetailProps) => {
         <TipIcon type={tip.type} />
         <h3
           id={`tip-title-${index}`}
-          className={cn("text-xl font-semibold", styles.title)}
+          className={cn("text-xl font-semibold", styles?.title)}
         >
           {tip.tip}
         </h3>

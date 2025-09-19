@@ -22,12 +22,12 @@ const Resume = () => {
 
   useEffect(() => {
     if (!isLoading && !auth.isAuthenticated)
-      navigate(`/auth?next=${PATHS.resume(id || "")}`);
+      navigate(`/auth?next=/resume/${id}`);
   }, [isLoading]);
 
   useEffect(() => {
     const loadResume = async () => {
-      const resume = await kv.get(PATHS.resume(id || ""));
+      const resume = await kv.get(`resume:${id}`);
 
       if (!resume) return;
 
@@ -46,7 +46,12 @@ const Resume = () => {
       setImageUrl(imageUrl);
 
       setFeedback(data.feedback);
-      console.log({ resumeUrl, imageUrl, feedback: data.feedback });
+
+      console.log({
+        "resume url": resumeUrl,
+        "image url": imageUrl,
+        feedback: data.feedback,
+      });
     };
 
     loadResume();
