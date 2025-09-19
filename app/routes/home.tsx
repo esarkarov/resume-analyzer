@@ -20,7 +20,7 @@ const Home = () => {
   const { auth, kv } = usePuterStore();
   const navigate = useNavigate();
   const [resumes, setResumes] = useState<IResume[]>([]);
-  const [loadingResumes, setLoadingResumes] = useState(false);
+  const [loadingResumes, setLoadingResumes] = useState<boolean>(false);
 
   useEffect(() => {
     if (!auth.isAuthenticated) navigate("/auth?next=/");

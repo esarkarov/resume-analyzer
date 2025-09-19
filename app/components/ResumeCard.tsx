@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { PATHS } from "~/constants/paths";
-import type { IResume } from "~/interfaces/IPuter";
 import ScoreCircle from "./ScoreCircle";
+import type { IResume } from "~/interfaces/IResume";
 
 const ResumeCard = ({
   resume: { id, companyName, jobTitle, feedback, imagePath },

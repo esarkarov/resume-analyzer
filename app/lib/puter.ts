@@ -7,6 +7,7 @@ import type {
   IPuterStore,
   IPuterUser,
 } from "~/interfaces/IPuter";
+import { getPuter } from "./utils";
 
 declare global {
   interface Window {
@@ -49,8 +50,6 @@ declare global {
     };
   }
 }
-
-const getPuter = (): typeof window.puter | null => typeof window !== "undefined" && window.puter ? window.puter : null;
 
 export const usePuterStore = create<IPuterStore>((set, get) => {
   const setError = (msg: string) => {
