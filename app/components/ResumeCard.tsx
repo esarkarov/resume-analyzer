@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { PATHS } from "~/constants/paths";
-import type { IResume } from "~/interfaces";
+import type { IResume } from "~/interfaces/IPuter";
 import ScoreCircle from "./ScoreCircle";
 
 const ResumeCard = ({

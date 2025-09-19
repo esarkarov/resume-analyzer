@@ -19,12 +19,3 @@ export interface IFeedback {
   structure: IFeedbackCategory;
   skills: IFeedbackCategory;
 }
-
-export interface IResume {
-  id: string;
-  companyName?: string;
-  jobTitle?: string;
-  imagePath: string;
-  resumePath: string;
-  feedback: IFeedback;
-}
