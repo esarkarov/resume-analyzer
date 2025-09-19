@@ -8,3 +8,4 @@ export interface IResume {
   resumePath: string;
   feedback: IFeedback;
 }
+
