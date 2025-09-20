@@ -1,7 +1,7 @@
-import useATSScore from "~/hooks/useATSScore";
 import type { ISuggestion } from "~/interfaces/ISuggestion";
 import FeedbackContent from "../molecules/FeedbackContent";
 import FeedbackScoreHeader from "../atoms/FeedbackScoreHeader";
+import { getATSScoreConfig } from "~/utils";
 
 interface FeedbackATSProps {
   score: number;
@@ -9,7 +9,7 @@ interface FeedbackATSProps {
 }
 
 const FeedbackATS = ({ score, suggestions }: FeedbackATSProps) => {
-  const { gradientClass, iconSrc, subtitle } = useATSScore(score);
+  const { gradientClass, iconSrc, subtitle } = getATSScoreConfig(score);
 
   return (
     <div

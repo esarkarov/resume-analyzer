@@ -1,12 +1,12 @@
 import { createContext, useContext, type ReactNode } from "react";
 import { useAccordionState } from "~/hooks/useAccordionState";
 import type {
-  AccordionContextType,
-  AccordionProviderParams,
+  IAccordionContextType,
+  IAccordionProviderParams,
 } from "~/interfaces/IAccordion";
 import { cn } from "~/utils";
 
-export const AccordionContext = createContext<AccordionContextType | undefined>(
+export const AccordionContext = createContext<IAccordionContextType | undefined>(
   undefined
 );
 
@@ -15,7 +15,7 @@ export const AccordionProvider = ({
   defaultOpen,
   allowMultiple = false,
   className = "",
-}: AccordionProviderParams) => {
+}: IAccordionProviderParams) => {
   const accordionState = useAccordionState(defaultOpen, allowMultiple);
 
   return (

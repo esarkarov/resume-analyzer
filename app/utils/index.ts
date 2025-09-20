@@ -5,6 +5,7 @@ import { twMerge } from "tailwind-merge";
 import type { IBadgeConfig, IBadgeTheme } from "~/interfaces/IBadge";
 import { isRouteErrorResponse } from "react-router";
 import type { IErrorInfo } from "~/interfaces/IError";
+import type { IScoreConfig } from "~/interfaces/IScore";
 
 export const generateUUID = () => crypto.randomUUID();
 
@@ -44,6 +45,30 @@ export const getScoreBadgeConfig = (score: number): IBadgeConfig => {
   return {
     color: "bg-badge-red text-red-600",
     text: "Needs Work",
+  };
+};
+
+export const getATSScoreConfig = (score: number): IScoreConfig => {
+  if (score > 69) {
+    return {
+      gradientClass: "from-green-100",
+      iconSrc: "/icons/ats-good.svg",
+      subtitle: "Great Job!",
+    };
+  }
+
+  if (score > 49) {
+    return {
+      gradientClass: "from-yellow-100",
+      iconSrc: "/icons/ats-warning.svg",
+      subtitle: "Good Start",
+    };
+  }
+
+  return {
+    gradientClass: "from-red-100",
+    iconSrc: "/icons/ats-bad.svg",
+    subtitle: "Needs Improvement",
   };
 };
 
