@@ -1,9 +1,8 @@
-import { RESUMES } from "~/constants/resumes";
-import ScanSpinner from "../atoms/ScanSpinner";
-import ResumeCard from "./ResumeCard";
 import { Link } from "react-router";
 import { PATHS } from "~/constants/paths";
 import { useGetResumes } from "~/hooks/useGetResumes";
+import ScanSpinner from "../atoms/ScanSpinner";
+import ResumeCard from "./ResumeCard";
 
 const MainContent = () => {
   const { resumes, isLoading } = useGetResumes();
@@ -26,7 +25,7 @@ const MainContent = () => {
 
       {hasResumes && (
         <div className="resumes-section">
-          {RESUMES.map((resume) => (
+          {resumes.map((resume) => (
             <ResumeCard key={resume.id} resume={resume} />
           ))}
         </div>
